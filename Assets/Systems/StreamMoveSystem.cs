@@ -4,7 +4,7 @@ using FYFY;
 public class StreamMoveSystem : FSystem {
 
 
-	private Family _bloodStreamMovableGO = FamilyManager.getFamily (new AllOfComponents (typeof(Move)));
+	private Family _bloodStreamMovableGO = FamilyManager.getFamily (new AllOfComponents (typeof(Move), typeof(StreamMove)));
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -20,7 +20,7 @@ public class StreamMoveSystem : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _bloodStreamMovableGO) {
 			Transform tr = go.GetComponent<Transform> ();
-			Move mv = go.GetComponent<Move> ();
+			StreamMove mv = go.GetComponent<StreamMove> ();
 			Vector3 movement = Vector3.zero;
 			//Debug.LogError (go);
 			movement += Vector3.right;
