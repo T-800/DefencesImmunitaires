@@ -21,7 +21,6 @@ public class ControllableSystem : FSystem {
 		foreach (GameObject go in _controllableGO) {
 			Transform tr = go.GetComponent<Transform> ();
 			Move mv = go.GetComponent<Move> ();
-			StreamMove sm = go.GetComponent<StreamMove> ();
 			Vector3 movement = Vector3.zero;
 
 			if (Input.GetKey (KeyCode.LeftArrow) == true) {
