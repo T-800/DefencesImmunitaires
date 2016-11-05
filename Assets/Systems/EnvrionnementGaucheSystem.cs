@@ -19,9 +19,9 @@ public class EnvrionnementGaucheSystem : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _controllableGO) {
 			Transform tr = go.GetComponent<Transform> ();
-			float po = tr.position.x;
+			float po = Time.time;
 			go.GetComponent<Move>().vitesse = 10 + 2*Mathf.Sin(po/4) + Mathf.Sin(po/4 -0.2f);
-			tr.position += Vector3.left * go.GetComponent<Move>().vitesse  * Time.deltaTime;
+			tr.position += go.GetComponent<Move>().coefv * Vector3.left * go.GetComponent<Move>().vitesse  * Time.deltaTime;
 		}
 
 	}

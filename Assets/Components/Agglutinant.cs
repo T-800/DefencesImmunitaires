@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
 
-public class Endommager : MonoBehaviour {
+public class Agglutinant : MonoBehaviour {
 	// Advice: FYFY component aims to contain only public members (according to Entity-Component-System paradigm).
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class Spécialisation : MonoBehaviour {
-	public string type;
+public class Infecte : MonoBehaviour {
 	// Advice: FYFY component aims to contain only public members (according to Entity-Component-System paradigm).
+
+
 }

@@ -3,7 +3,7 @@ using FYFY;
 
 public class ControllableVerticaleSystem: FSystem {
 
-	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)),new AllOfComponents(typeof(Controlable)));
+	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)),new AllOfComponents(typeof(Controllable)));
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
