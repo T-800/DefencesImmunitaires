@@ -26,8 +26,8 @@ public class ApoptoseSystem : FSystem {
 
 				Debug.Log (target);
 
-				Infecte infecte = target.GetComponent<Infecte> ();
-				if (infecte != null) {
+				IsInfecte isInfecte = target.GetComponent<IsInfecte> ();
+				if (isInfecte != null) {
 					Debug.Log (target + " : IsApoptose !");
 					target.AddComponent<IsApoptose>();
 				}

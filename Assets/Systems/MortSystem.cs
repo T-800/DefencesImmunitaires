@@ -26,14 +26,14 @@ public class MortSystem : FSystem {
 		foreach (GameObject go in _triggeredGO) {
 			bool tokill = false;
 
-			Virus virusC = go.GetComponent<Virus> ();
+			Infecteur virusC = go.GetComponent<Infecteur> ();
 			HP hp1 =  go.GetComponent<HP>();
 			IsApoptose isApoptose =  go.GetComponent<IsApoptose>();
 			IsAbsorbe isAbsorbe = go.GetComponent<IsAbsorbe> ();
-			Infecte infecte = go.GetComponent<Infecte> ();
+			IsInfecte infecte = go.GetComponent<IsInfecte> ();
 			Leucocyte leucocyte = go.GetComponent<Leucocyte> ();
 			Secreter secreter = go.GetComponent<Secreter> ();
-			if (virusC != null && virusC.infect) { // mort des virus une fois qu'ils ont infecté qlqu'un
+			if (virusC != null && virusC.hasInfect) { // mort des virus une fois qu'ils ont infecté qlqu'un
 				Debug.Log ("MORT : virus a infecté " + go);
 				tokill = true;
 				//GameObjectManager.destroyGameObject (go);

@@ -26,7 +26,7 @@ public class RallentirSystem : FSystem {
 						Debug.Log ("it should work");
 						target.GetComponent<Move> ().coefv = 0.8f;
 					} else {
-						if (target.GetComponent<Virus> () != null && go.GetComponent<Specialisation>().type.Equals("Virus")) {
+						if (target.GetComponent<Infecteur> () != null && go.GetComponent<Specialisation>().type.Equals("Virus")) {
 							Debug.Log ("it should work");
 							target.GetComponent<Move> ().coefv = 0.8f;
 						}

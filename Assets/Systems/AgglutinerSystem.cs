@@ -20,7 +20,7 @@ public class AgglutinerSystem : FSystem {
 		foreach (GameObject go in _triggeredGO) {
 			Triggered2D t2D = go.GetComponent<Triggered2D> ();
 			foreach (GameObject target in t2D.Targets) {
-				if (target.GetComponent<Virus>() != null && target.GetComponent<Agglutinué> () == null) {
+				if (target.GetComponent<Infecteur>() != null && target.GetComponent<Agglutinué> () == null) {
 					target.AddComponent<Agglutinué> ();
 				}
 			}
