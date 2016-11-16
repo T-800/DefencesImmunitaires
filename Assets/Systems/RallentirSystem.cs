@@ -1,14 +1,10 @@
-﻿	using UnityEngine;
-	using FYFY;
-		using FYFY_plugins.TriggerManager;
+﻿using UnityEngine;
+using FYFY;
+using FYFY_plugins.TriggerManager;
 
-		public class RallentirSystem : FSystem {
+public class RallentirSystem : FSystem {
 
-<<<<<<< HEAD
 	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Specialisation),typeof(Ralentir)));
-=======
-			private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Specialisation),typeof(Ralentir)));
->>>>>>> ed5a8461944c1bb4073c77be50d8b42434ef98ff
 
 			// Use this to update member variables when system pause. 
 			// Advice: avoid to update your families inside this function.
@@ -20,21 +16,12 @@
 			protected override void onResume(int currentFrame){
 			}
 
-<<<<<<< HEAD
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach(GameObject go in _triggeredGO ){
 			Triggered2D t2D = go.GetComponent<Triggered2D>();
 			foreach (GameObject target in t2D.Targets) {
 				if ( target.GetComponents<Move> () !=null ) {
-=======
-			// Use to process your families.
-			protected override void onProcess(int familiesUpdateCount) {
-				foreach(GameObject go in _triggeredGO ){
-					Triggered2D t2D = go.GetComponent<Triggered2D>();
-					foreach (GameObject target in t2D.Targets) {
-						if ( target.GetComponents<Move> () !=null ) {
->>>>>>> ed5a8461944c1bb4073c77be50d8b42434ef98ff
 					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxines") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
 						Debug.Log ("it should work");
 						target.GetComponent<Move> ().coefv = 0.8f;
