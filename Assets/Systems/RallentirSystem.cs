@@ -4,7 +4,7 @@ using FYFY_plugins.TriggerManager;
 
 public class RallentirSystem : FSystem {
 
-	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D)),(new AllOfComponents(typeof(Ralentir))));
+	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Specialisation),typeof(Ralentir)));
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -22,8 +22,15 @@ public class RallentirSystem : FSystem {
 			Triggered2D t2D = go.GetComponent<Triggered2D>();
 			foreach (GameObject target in t2D.Targets) {
 				if ( target.GetComponents<Move> () !=null ) {
-					Debug.Log ("it should work");
-					target.GetComponent<Move>().setcoefv(0.8f);
+					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxines") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
+						Debug.Log ("it should work");
+						target.GetComponent<Move> ().coefv = 0.8f;
+					} else {
+						if (target.GetComponent<Virus> () != null && go.GetComponent<Specialisation>().type.Equals("Virus")) {
+							Debug.Log ("it should work");
+							target.GetComponent<Move> ().coefv = 0.8f;
+						}
+					}
 				}
 			}
 		}

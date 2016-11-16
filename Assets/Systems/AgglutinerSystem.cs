@@ -3,7 +3,7 @@ using FYFY;
 using FYFY_plugins.TriggerManager;
 
 public class AgglutinerSystem : FSystem {
-	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D)),new AllOfComponents(typeof(Agglutinant)));
+	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Specialisation),typeof(Agglutinant)));
 
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
@@ -20,11 +20,11 @@ public class AgglutinerSystem : FSystem {
 		foreach (GameObject go in _triggeredGO) {
 			Triggered2D t2D = go.GetComponent<Triggered2D> ();
 			foreach (GameObject target in t2D.Targets) {
-				if (target.GetComponent<Agglutinué> () == null) {
+				if (target.GetComponent<Virus>() != null && target.GetComponent<Agglutinué> () == null) {
 					target.AddComponent<Agglutinué> ();
 				}
 			}
 		}
 	}
-		
+
 }

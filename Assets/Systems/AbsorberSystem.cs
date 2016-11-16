@@ -5,7 +5,7 @@ public class AbsorberSystem : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
-	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Absorber)));
+	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Absorber), typeof(HP)));
 
 	protected override void onPause(int currentFrame) {
 	}
@@ -22,10 +22,24 @@ public class AbsorberSystem : FSystem {
 			HP hp1 = go.GetComponent<HP> ();
 
 			foreach (GameObject target in t2d.Targets) {
-				// Trouver une solution plus efficace que les tags.
-				// il faut aussi rajouter les virus infectées et les bactéries.
+				IsAbsorbe isAbsorbe = target.GetComponent<IsAbsorbe> ();
+				if (isAbsorbe != null)
+					continue;
 				if (target.gameObject.CompareTag ("toxine")) {
-					GameObjectManager.destroyGameObject (target);
+					target.AddComponent<IsAbsorbe>();
+					Debug.Log ("Absorbe : toxine " + go);
+					hp1.hp = hp1.hp - 1;
+				}
+				else if (target.gameObject.CompareTag ("dechet")) {
+					target.AddComponent<IsAbsorbe>();
+					hp1.hp = hp1.hp - 1;
+				}
+				else if (target.gameObject.CompareTag ("bacterie")) {
+					target.AddComponent<IsAbsorbe>();
+					hp1.hp = hp1.hp - 1;
+				}
+				else if (target.gameObject.CompareTag ("virus") && target.GetComponent<Agglutinué>() != null) {
+					target.AddComponent<IsAbsorbe>();
 					hp1.hp = hp1.hp - 1;
 				}
 			}
