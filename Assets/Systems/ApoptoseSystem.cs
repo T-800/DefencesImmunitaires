@@ -21,10 +21,11 @@ public class ApoptoseSystem : FSystem {
 
 		foreach (GameObject go in _triggeredGO) {
 			Triggered2D t2d = go.GetComponent<Triggered2D> ();
+			Debug.Log ("go : " +  go);
 
 			foreach (GameObject target in t2d.Targets) {
+				Debug.Log ("target : " +  target);
 
-				Debug.Log (target);
 
 				IsInfecte isInfecte = target.GetComponent<IsInfecte> ();
 				if (isInfecte != null) {

@@ -33,7 +33,7 @@ public class InfecterSystem : FSystem {
 
 					SpriteRenderer spriteRenderer; 
 					spriteRenderer = target.GetComponent<SpriteRenderer>();
-					Sprite s = (Sprite)Resources.Load("macro_infected", typeof(Sprite));
+					Sprite s = (Sprite)Resources.Load(spriteRenderer.sprite.name+"_infected", typeof(Sprite));
 					Debug.Log (s);
 					spriteRenderer.sprite = s;
 					Infecteur virus =  go.GetComponent<Infecteur>();

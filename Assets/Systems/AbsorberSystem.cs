@@ -33,6 +33,7 @@ public class AbsorberSystem : FSystem {
 					hp1.hp -= absorbeur.hpLost;
 				}
 				else if (target.gameObject.CompareTag ("dechet")) {
+					Debug.Log ("Absorbe : dechet " + go);
 					target.AddComponent<IsAbsorbe>();
 					hp1.hp -= absorbeur.hpLost;
 				}

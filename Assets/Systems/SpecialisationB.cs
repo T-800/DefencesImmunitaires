@@ -6,6 +6,7 @@ public class SpecialisationB : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _controllGO = FamilyManager.getFamily(new AllOfComponents(typeof(TempsContact), typeof(Triggered2D)));
+
 	protected override void onPause(int currentFrame) {
 	}
 
@@ -30,6 +31,7 @@ public class SpecialisationB : FSystem {
 					if (tc.temp == 0) {
 						GameObjectManager.removeComponent<TempsContact>(go);
 						GameObjectManager.addComponent (go, typeof(Specialisation), new { type = "Bacterie"});
+						GameObjectManager.addComponent (go, typeof(Secreter), new { type = "Anticorps"});
 						SpriteRenderer sprit;
 						sprit = go.GetComponent<SpriteRenderer> ();
 						Sprite s = (Sprite)Resources.Load("LymPhoBBacterie", typeof(Sprite));
@@ -44,6 +46,7 @@ public class SpecialisationB : FSystem {
 					if (tc.temp == 0) {
 						GameObjectManager.removeComponent<TempsContact>(go);
 						GameObjectManager.addComponent (go, typeof(Specialisation), new { type = "Virus"});
+						GameObjectManager.addComponent (go, typeof(Secreter), new { type = "Anticorps"});
 						SpriteRenderer sprit;
 						sprit = go.GetComponent<SpriteRenderer> ();
 						Sprite s = (Sprite)Resources.Load("LymPhoBVirale", typeof(Sprite));

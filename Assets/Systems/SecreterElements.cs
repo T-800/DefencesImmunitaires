@@ -22,12 +22,12 @@ public class SecreterElements : FSystem {
 
 		foreach (GameObject go in _SecreterGO) {
 			if (go.GetComponent<Secreter>() != null && go.GetComponent<Secreter>().type.Equals("Anticorps")){
-			Secreter sr = go.GetComponent<Secreter> ();
+				Secreter sr = go.GetComponent<Secreter> ();
 				sr.reloadProgress += Time.deltaTime;
 				int NombreMaxSecretionSecreter = sr.NombreMaxSecretion;
 				int NombreActuelleSecreter = sr.NombreActuelle; 
 				if (NombreActuelleSecreter == NombreMaxSecretionSecreter) {
-				new WaitForSecondsRealtime (300f);
+				new WaitForSecondsRealtime (30f);
 					NombreActuelleSecreter = 0;
 			}
 				Bounds SecreteurSize = go.GetComponent<Renderer>().bounds;
