@@ -21,7 +21,7 @@ public class EnvrionnementGaucheSystem : FSystem {
 			Transform tr = go.GetComponent<Transform> ();
 			float po = Time.time;
 			go.GetComponent<Move>().vitesse = 10 + 2*Mathf.Sin(po/4) + Mathf.Sin(po/4 -0.2f);
-			tr.position += go.GetComponent<Move>().coefv * Vector3.left * go.GetComponent<Move>().vitesse  * Time.deltaTime;
+			tr.position += go.GetComponent<Move>().coefd * go.GetComponent<Move>().coefv * Vector3.left * go.GetComponent<Move>().vitesse  * Time.deltaTime;
 		}
 
 	}

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using FYFY;
 
-public class RandomMoveSystemVert : FSystem {
-
+public class RandomMoveSystemHor : FSystem {
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move),typeof(RandomMove)));
 
 
@@ -27,19 +26,18 @@ public class RandomMoveSystemVert : FSystem {
 
 			float time;
 			float reloadProgress;
-			bool left;
+			bool up;
 
-
-			time = randomMoveAvg.reloadTimeLeft;
-			randomMoveAvg.reloadProgressLeft += Time.deltaTime;
-			reloadProgress = randomMoveAvg.reloadProgressLeft;
-			left = randomMoveAvg.left;
+			time = randomMoveAvg.reloadTimeUp;
+			randomMoveAvg.reloadProgressUp += Time.deltaTime;
+			reloadProgress = randomMoveAvg.reloadProgressUp;
+			up = randomMoveAvg.up;
 
 
 			if (reloadProgress >= time){
 				if (randomMoveAvg != null) {
-					randomMoveAvg.randomRangeLeft ();
-				} 
+					randomMoveAvg.randomRangeUp ();
+				}
 
 			}
 			Transform tr = go.GetComponent<Transform> ();
@@ -47,11 +45,11 @@ public class RandomMoveSystemVert : FSystem {
 
 			Vector3 movement = Vector3.zero;
 
-			if (left) {
-				movement += Vector3.left;
+			if (up) {
+				movement += Vector3.up;
 			}
 			else {
-				movement += Vector3.right;
+				movement += Vector3.down;
 			}
 			tr.position += movement * mv.vitesse * mv.coefd * mv.coefv * Time.deltaTime;
 

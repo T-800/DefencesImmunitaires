@@ -36,7 +36,7 @@ public class ControllableVerticaleSystem: FSystem {
 			//	movement += Vector3.down;
 			//}	
 
-			tr.position += movement * mv.vitesse * Time.deltaTime;
+			tr.position += movement * mv.vitesse * mv.coefd * mv.coefv * Time.deltaTime;
 		}
 
 	}
