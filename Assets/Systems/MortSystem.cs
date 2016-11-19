@@ -57,8 +57,8 @@ public class MortSystem : FSystem {
 				Debug.Log ("dechet " + go);
 				bound = go.GetComponent<Renderer>().bounds;
 				for (int i = 0; i < 3; i++) {
-					float x = Random.Range (bound.max.x, bound.max.x + 0.5f);
-					float y = Random.Range (bound.max.y, bound.max.y + 0.5f);
+					float x = Random.Range (bound.min.x - 0.5f, bound.max.x + 0.5f);
+					float y = Random.Range (bound.min.y - 0.5f, bound.max.y + 0.5f);
 					float z = 0.0f;
 
 					Vector3 toxPosition = new Vector3 (x, y, z);
