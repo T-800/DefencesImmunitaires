@@ -46,10 +46,10 @@ public class RandomMoveSystemHor : FSystem {
 			Vector3 movement = Vector3.zero;
 
 			if (up) {
-				movement += Vector3.up;
+				movement += Vector3.up * 0.2f;
 			}
 			else {
-				movement += Vector3.down;
+				movement += Vector3.down * 0.2f;
 			}
 			tr.position += movement * mv.vitesse * mv.coefd * mv.coefv * Time.deltaTime;
 

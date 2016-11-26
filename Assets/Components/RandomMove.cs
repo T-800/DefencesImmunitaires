@@ -13,11 +13,11 @@ public class RandomMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		reloadTimeLeft = Random.Range (0.3f, 0.6f);
+		reloadTimeLeft = Random.Range (0.1f, 0.3f);
 		left = Random.Range (0, 2) == 0;
 		reloadProgressLeft = 0f;
 
-		reloadTimeUp = Random.Range (0.3f, 0.6f);
+		reloadTimeUp = Random.Range (0.1f, 0.3f);
 		up = Random.Range (0, 2) == 0;
 		reloadProgressUp = 0f;
 	}
@@ -28,13 +28,13 @@ public class RandomMove : MonoBehaviour {
 	}
 
 	public void randomRangeLeft(){
-		reloadTimeLeft = Random.Range (0.3f, 0.6f);
+		reloadTimeLeft = Random.Range (0.1f, 0.3f);
 		left = Random.Range (0, 2) == 0;
 		reloadProgressLeft = 0f;
 	}
 
 	public void randomRangeUp(){
-		reloadTimeUp = Random.Range (0.3f, 0.6f);
+		reloadTimeUp = Random.Range (0.1f, 0.3f);
 		up = Random.Range (0, 2) == 0;
 		reloadProgressUp = 0f;
 	}
