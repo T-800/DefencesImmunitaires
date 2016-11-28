@@ -26,7 +26,7 @@ public class GlobulesRougesFactory : FSystem {
 
 			Vector3 v3Pos = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, Random.Range (0.1f, 0.9f), 1.0f));
 			Vector3 ElementPosition = v3Pos;
-			GameObject Element = GameObjectManager.instantiatePrefab ("globuleRouge");
+			GameObject Element = GameObjectManager.instantiatePrefab ("Globule");
 			Element.transform.position = ElementPosition;
 				
 			reloadProgress = 0;

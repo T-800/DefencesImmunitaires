@@ -57,7 +57,7 @@ public class SecreterElements : FSystem {
 
 
 
-			if (go.GetComponent<Secreter>() != null && go.GetComponent<Secreter>().type.Equals("Toxines")){
+			if (go.GetComponent<Secreter>() != null && go.GetComponent<Secreter>().type.Equals("Toxine")){
 				
 				Secreter sr = go.GetComponent<Secreter> ();
 				sr.reloadProgress += Time.deltaTime;

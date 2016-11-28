@@ -6,7 +6,7 @@ using FYFY_plugins.TriggerManager;
 public class MortSystem : FSystem {
 
 
-	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D)));
+	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)));
 	private Bounds bound;
 	public GameObject vir;
 
@@ -54,7 +54,6 @@ public class MortSystem : FSystem {
 				//GameObjectManager.destroyGameObject (go);
 			}
 			if (leucocyte != null && tokill) {
-				Debug.Log ("dechet " + go);
 				bound = go.GetComponent<Renderer>().bounds;
 				for (int i = 0; i < 3; i++) {
 					float x = Random.Range (bound.min.x - 0.5f, bound.max.x + 0.5f);
@@ -63,7 +62,7 @@ public class MortSystem : FSystem {
 
 					Vector3 toxPosition = new Vector3 (x, y, z);
 
-					vir = GameObjectManager.instantiatePrefab("dechet"+(i+1));
+					vir = GameObjectManager.instantiatePrefab("Dechet");
 					vir.transform.position = toxPosition;
 				}
 			}
@@ -76,7 +75,7 @@ public class MortSystem : FSystem {
 				Vector3 toxPosition = new Vector3 (x, y, z);
 
 				vir = GameObjectManager.instantiatePrefab("dechet1");
-				vir.transform.position = toxPosition;
+				//vir.transform.position = toxPosition;
 			}
 
 			if (infecte != null && isAbsorbe == null && isApoptose == null && tokill) {
@@ -89,15 +88,15 @@ public class MortSystem : FSystem {
 
 					Vector3 toxPosition = new Vector3 (x, y, z);
 
-					vir = GameObjectManager.instantiatePrefab("virus");
+					vir = GameObjectManager.instantiatePrefab("Virus");
 					vir.transform.position = toxPosition;
 				}
 
 			}
 			if (tokill) {
-				if(go.gameObject.transform.parent.gameObject)
-					GameObjectManager.destroyGameObject (go.gameObject.transform.parent.gameObject);
-				else 
+				//if(go.gameObject.transform.parent.gameObject)
+				//	GameObjectManager.destroyGameObject (go.gameObject.transform.parent.gameObject);
+				//else 
 					GameObjectManager.destroyGameObject (go);
 			}
 

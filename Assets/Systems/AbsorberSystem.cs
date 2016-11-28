@@ -5,7 +5,7 @@ public class AbsorberSystem : FSystem {
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 
-	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Absorbeur), typeof(HP)));
+	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Absorbeur)));
 
 	protected override void onPause(int currentFrame) {
 	}
@@ -40,7 +40,7 @@ public class AbsorberSystem : FSystem {
 				else if (target.gameObject.CompareTag ("bacterie")) {
 					Debug.Log ("Absorbe");
 					target.AddComponent<IsAbsorbe>();
-					target.gameObject.transform.GetChild(0).gameObject.AddComponent<IsAbsorbe>();
+					//target.gameObject.transform.GetChild(0).gameObject.AddComponent<IsAbsorbe>();
 					hp1.hp -= absorbeur.hpLost;
 				}
 				else if (target.gameObject.CompareTag ("virus") && target.GetComponent<Agglutinué>() != null) {
