@@ -4,7 +4,7 @@ using FYFY_plugins.TriggerManager;
 
 public class InfecterSystem : FSystem {
 
-	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D), typeof(Infecteur)), new NoneOfComponents(typeof(Agglutinué)));
+	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D), typeof(Infecteur)));
 
 
 
@@ -22,7 +22,10 @@ public class InfecterSystem : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _triggeredGO) {
 			Triggered2D t2d = go.GetComponent<Triggered2D> ();
-
+			if (go.GetComponent<Agglutinué> () != null) {
+				Debug.Log (go+" aggl");
+				continue;
+			}
 			foreach (GameObject target in t2d.Targets) {
 
 				Leucocyte leucocyte = target.GetComponent<Leucocyte> ();
@@ -40,7 +43,6 @@ public class InfecterSystem : FSystem {
 					virus.hasInfect = true;
 
 					Debug.Log (target + " : est infecté !");
-
 				}
 
 			}

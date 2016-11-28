@@ -38,11 +38,15 @@ public class AbsorberSystem : FSystem {
 					hp1.hp -= absorbeur.hpLost;
 				}
 				else if (target.gameObject.CompareTag ("bacterie")) {
+					Debug.Log ("Absorbe");
 					target.AddComponent<IsAbsorbe>();
+					target.gameObject.transform.GetChild(0).gameObject.AddComponent<IsAbsorbe>();
 					hp1.hp -= absorbeur.hpLost;
 				}
 				else if (target.gameObject.CompareTag ("virus") && target.GetComponent<Agglutinué>() != null) {
+					Debug.Log ("Absorbe");
 					target.AddComponent<IsAbsorbe>();
+					target.gameObject.transform.GetChild(0).gameObject.AddComponent<IsAbsorbe>();
 					hp1.hp -= absorbeur.hpLost;
 				}
 			}

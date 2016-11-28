@@ -94,7 +94,12 @@ public class MortSystem : FSystem {
 				}
 
 			}
-			if(tokill)GameObjectManager.destroyGameObject (go);
+			if (tokill) {
+				if(go.gameObject.transform.parent.gameObject)
+					GameObjectManager.destroyGameObject (go.gameObject.transform.parent.gameObject);
+				else 
+					GameObjectManager.destroyGameObject (go);
+			}
 
 
 

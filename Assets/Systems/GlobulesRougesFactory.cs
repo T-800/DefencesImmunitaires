@@ -25,13 +25,9 @@ public class GlobulesRougesFactory : FSystem {
 		if (reloadProgress >= reloadTime) {
 
 			Vector3 v3Pos = Camera.main.ViewportToWorldPoint(new Vector3(-0.1f, Random.Range (0.1f, 0.9f), 1.0f));
-
-			/*float x = Random.Range (SecreteurSize.min.x, SecreteurSize.max.x);
-			float y = Random.Range (SecreteurSize.min.y, SecreteurSize.max.y);
-			float z = 0.0f;*/
 			Vector3 ElementPosition = v3Pos;
 			GameObject Element = GameObjectManager.instantiatePrefab ("globuleRouge");
-				Element.transform.position = ElementPosition;
+			Element.transform.position = ElementPosition;
 				
 			reloadProgress = 0;
 		}
