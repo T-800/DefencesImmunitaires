@@ -19,7 +19,8 @@ public class AbsorberSystem : FSystem {
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _controllableGO) {
 			Triggered2D t2d = go.GetComponent<Triggered2D> ();
-			HP hp1 = go.GetComponent<HP> ();
+
+			HP hp1 = go.gameObject.GetComponentInChildren<HP> ();
 
 			foreach (GameObject target in t2d.Targets) {
 				IsAbsorbe isAbsorbe = target.GetComponent<IsAbsorbe> ();

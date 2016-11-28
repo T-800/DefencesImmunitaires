@@ -30,6 +30,7 @@ public class EndommagerSystem : FSystem {
 				Absorbeur absorbe = target.GetComponent<Absorbeur> ();
 				if (hp1 != null && leucocyte != null && absorbe == null) {
 					Endommage endommage = go.GetComponent<Endommage> ();
+					Debug.Log (hp1.hp);
 					hp1.hp -= endommage.hpLost;
 					/*if (hp1.hp <= 0)
 						GameObjectManager.destroyGameObject (target);

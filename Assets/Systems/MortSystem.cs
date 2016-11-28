@@ -27,7 +27,7 @@ public class MortSystem : FSystem {
 			bool tokill = false;
 
 			Infecteur virusC = go.GetComponent<Infecteur> ();
-			HP hp1 =  go.GetComponent<HP>();
+			HP hp1 = go.gameObject.GetComponentInChildren<HP> ();
 			IsApoptose isApoptose =  go.GetComponent<IsApoptose>();
 			IsAbsorbe isAbsorbe = go.GetComponent<IsAbsorbe> ();
 			IsInfecte infecte = go.GetComponent<IsInfecte> ();
@@ -74,7 +74,7 @@ public class MortSystem : FSystem {
 
 				Vector3 toxPosition = new Vector3 (x, y, z);
 
-				vir = GameObjectManager.instantiatePrefab("dechet1");
+				vir = GameObjectManager.instantiatePrefab("Dechet");
 				//vir.transform.position = toxPosition;
 			}
 
