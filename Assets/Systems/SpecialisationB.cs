@@ -33,8 +33,9 @@ public class SpecialisationB : FSystem {
 						Specialisation spe = go.gameObject.transform.parent.gameObject.GetComponent<Specialisation> ();
 						spe.type = "Bacterie";
 						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Specialisation), new { type = "Bacterie"});
-						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps"});
+						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps"});
 						// TODO: reduire le temps de reload  de secreter!!!!
+						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
 						SpriteRenderer sprit;
 						sprit = go.gameObject.transform.parent.GetComponent<SpriteRenderer> ();
 						Sprite s = (Sprite)Resources.Load("lymphocyteBBacterie", typeof(Sprite));
@@ -53,8 +54,8 @@ public class SpecialisationB : FSystem {
 						spe.type = "Virus";
 
 						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Specialisation), new { type = "Virus"});
-						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps"});
-
+						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
+						//Secreter secr =go.gameObject.transform.parent.gameObject.GetComponent<Secreter> ();
 						// TODO: reduire le temps de reload de secreter !!!!
 
 
