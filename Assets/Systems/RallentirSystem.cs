@@ -21,8 +21,9 @@ public class RallentirSystem : FSystem {
 		foreach(GameObject go in _triggeredGO ){
 			Triggered2D t2D = go.GetComponent<Triggered2D>();
 			foreach (GameObject target in t2D.Targets) {
+				Debug.Log ("AZERTYUIOP");
 				if ( target.GetComponents<Move> () !=null ) {
-					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxines") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
+					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxine") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
 						Debug.Log ("it should work");
 						target.GetComponent<Move> ().coefv = 0.8f;
 					} else {

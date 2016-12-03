@@ -25,17 +25,13 @@ public class EndommagerSystem : FSystem {
 			Triggered2D t2d = go.GetComponent<Triggered2D> ();
 
 			foreach (GameObject target in t2d.Targets) {
-				Leucocyte leucocyte = go.GetComponent<Leucocyte> ();
-				HP hp1 =  target.GetComponent<HP>();
+				Leucocyte leucocyte = target.GetComponent<Leucocyte> ();
+				HP hp1 = target.gameObject.GetComponentInChildren<HP> ();
 				Absorbeur absorbe = target.GetComponent<Absorbeur> ();
 				if (hp1 != null && leucocyte != null && absorbe == null) {
 					Endommage endommage = go.GetComponent<Endommage> ();
-					Debug.Log (hp1.hp);
 					hp1.hp -= endommage.hpLost;
-					/*if (hp1.hp <= 0)
-						GameObjectManager.destroyGameObject (target);
-					*/
-					
+					endommage.hasEndommage = true;
 				}
 
 			}

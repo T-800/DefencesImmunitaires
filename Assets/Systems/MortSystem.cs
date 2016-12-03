@@ -33,6 +33,12 @@ public class MortSystem : FSystem {
 			IsInfecte infecte = go.GetComponent<IsInfecte> ();
 			Leucocyte leucocyte = go.GetComponent<Leucocyte> ();
 			Secreter secreter = go.GetComponent<Secreter> ();
+			Endommage endommage  = go.GetComponent<Endommage> ();
+			if (endommage != null && endommage.hasEndommage) { // mort des virus une fois qu'ils ont infecté qlqu'un
+				Debug.Log ("MORT : toxine a endommagé " + go);
+				tokill = true;
+				//GameObjectManager.destroyGameObject (go);
+			}
 			if (virusC != null && virusC.hasInfect) { // mort des virus une fois qu'ils ont infecté qlqu'un
 				Debug.Log ("MORT : virus a infecté " + go);
 				tokill = true;
