@@ -2,6 +2,7 @@
 using FYFY;
 
 public class RandomMoveSystemHor : FSystem {
+	//Pour les éléments qui peuvent bouger et randomly
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move),typeof(RandomMove)));
 
 
@@ -18,6 +19,7 @@ public class RandomMoveSystemHor : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
+		//Faire des randoms move 
 		foreach (GameObject go in _controllableGO) {
 
 			RandomMove randomMoveAvg = go.GetComponent<RandomMove> ();

@@ -3,7 +3,7 @@ using FYFY;
 
 public class StreamMoveSystem : FSystem {
 
-
+	//Prendre les éléments qui peuvent faire du StreamMove
 	private Family _bloodStreamMovableGO = FamilyManager.getFamily (new AllOfComponents (typeof(Move), typeof(StreamMove)));
 
 	// Use this to update member variables when system pause. 
@@ -18,6 +18,7 @@ public class StreamMoveSystem : FSystem {
 
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
+		//On fait bouger les éléments
 		foreach (GameObject go in _bloodStreamMovableGO) {
 			Transform tr = go.GetComponent<Transform> ();
 			StreamMove mv = go.GetComponent<StreamMove> ();

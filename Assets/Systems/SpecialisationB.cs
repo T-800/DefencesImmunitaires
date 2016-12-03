@@ -5,6 +5,7 @@ public class SpecialisationB : FSystem {
 	public GameObject bac;
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
+	//On récupére les éléments qui peuvent se spécialiser avec un minium de temps contact défini
 	private Family _controllGO = FamilyManager.getFamily(new AllOfComponents(typeof(TempsContact), typeof(Triggered2D)));
 
 	protected override void onPause(int currentFrame) {
@@ -27,7 +28,7 @@ public class SpecialisationB : FSystem {
 				// il faut aussi rajouter les virus infectées et les bactéries.
 				//or target.gameObject.Equals("Virus") !! Faut voir si annelisse a fait virus.
 
-				if (target.gameObject.GetComponent<Secreter>() != null && target.gameObject.GetComponent<Secreter>().type.Equals ("Toxine")) {
+				if (target.gameObject.GetComponent<Secreter>() != null && target.gameObject.GetComponent<Secreter>().type.Equals ("Toxines")) {
 					if (tc.temp == 0) {
 						GameObjectManager.removeComponent<TempsContact>(go);
 						Specialisation spe = go.gameObject.transform.parent.gameObject.GetComponent<Specialisation> ();
@@ -35,10 +36,7 @@ public class SpecialisationB : FSystem {
 						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Specialisation), new { type = "Bacterie"});
 						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps"});
 						// TODO: reduire le temps de reload  de secreter!!!!
-						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
-						//GameObjectManager.addComponent (go.gameObject.transform.FindChild("contact").gameObject, typeof(Agglutinant), new Agglutinant());
-						//go.transform.FindChild("contact").gameObject.AddComponent<Ralentir>();
-						go.gameObject.AddComponent<Ralentir>();
+						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
 						SpriteRenderer sprit;
 						sprit = go.gameObject.transform.parent.GetComponent<SpriteRenderer> ();
 						Sprite s = (Sprite)Resources.Load("lymphocyteBBacterie", typeof(Sprite));
@@ -50,23 +48,16 @@ public class SpecialisationB : FSystem {
 
 
 				if (target.gameObject.GetComponent<Infecteur> ()) {
-					Debug.Log ("virus spéazertyuiop");
-
+					Debug.Log ("virus spé");
 					if (tc.temp == 0) {
 						GameObjectManager.removeComponent<TempsContact>(go);
 						Specialisation spe = go.gameObject.transform.parent.gameObject.GetComponent<Specialisation> ();
 						spe.type = "Virus";
 
-						//GameObjectManager.addComponent (go.gameObject, typeof(Ralentir), new { type = "Virus"});
-						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
+						//GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Specialisation), new { type = "Virus"});
+						GameObjectManager.addComponent (go.gameObject.transform.parent.gameObject, typeof(Secreter), new { type = "Anticorps", reloadTime = 0.4f});
 						//Secreter secr =go.gameObject.transform.parent.gameObject.GetComponent<Secreter> ();
 						// TODO: reduire le temps de reload de secreter !!!!
-						//Debug.Log(go.transform.GetChild(0).gameObject);
-						go.gameObject.AddComponent<Ralentir>();
-						go.gameObject.AddComponent<Agglutinant>();
-						//go.transform.GetChild(2).gameObject.AddComponent<Agglutinant>();
-
-						//GameObjectManager.addComponent (go.gameObject.transform.FindChild("contact").gameObject, typeof(Ralentir), new Ralentir());
 
 
 						SpriteRenderer sprit;

@@ -3,7 +3,7 @@ using FYFY;
 using FYFY_plugins.TriggerManager;
 
 public class RallentirSystem : FSystem {
-
+	//On récupére les éléments qui peuvent se spécialiser et ralentir
 	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Triggered2D),typeof(Specialisation),typeof(Ralentir)));
 
 			// Use this to update member variables when system pause. 
@@ -21,14 +21,15 @@ public class RallentirSystem : FSystem {
 		foreach(GameObject go in _triggeredGO ){
 			Triggered2D t2D = go.GetComponent<Triggered2D>();
 			foreach (GameObject target in t2D.Targets) {
-				Debug.Log ("AZERTYUIOP");
 				if ( target.GetComponents<Move> () !=null ) {
-					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxine") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
-						Debug.Log ("it should work");
+					//Si l'élement peut secreter et qu'ils secretent Toxines et Bactéries
+					if (target.GetComponent<Secreter> () != null && target.GetComponent<Secreter>().type.Equals("Toxines") && go.GetComponent<Specialisation> ().type.Equals ("Bacterie")) {
+
 						target.GetComponent<Move> ().coefv = 0.8f;
 					} else {
+						//si l'élement secrete un virus alors on ralentie
 						if (target.GetComponent<Infecteur> () != null && go.GetComponent<Specialisation>().type.Equals("Virus")) {
-							Debug.Log ("it should work");
+							
 							target.GetComponent<Move> ().coefv = 0.8f;
 						}
 					}

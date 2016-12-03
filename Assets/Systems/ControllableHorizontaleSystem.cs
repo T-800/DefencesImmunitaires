@@ -2,7 +2,7 @@
 using FYFY;
 
 public class ControllableHorizontaleSystem : FSystem {
-
+	//On récupére tous les élements qui peuvent bouger et qu'on peut controller
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)),new AllOfComponents(typeof(Controllable)));
 
 	// Use this to update member variables when system pause. 
@@ -29,10 +29,18 @@ public class ControllableHorizontaleSystem : FSystem {
 			//if (Input.GetKey (KeyCode.RightArrow) == true) {
 			//	movement += Vector3.right;
 			//}
+			//Ils peuvent juste soit monter ou descendre
 			if (Input.GetKey (KeyCode.UpArrow) == true) {
 				movement += Vector3.up;
 			}
 			if (Input.GetKey (KeyCode.DownArrow) == true) {
+				movement += Vector3.down;
+			}	
+			if (Input.GetKey (KeyCode.Z) == true) {
+				movement += Vector3.up;
+			}
+			//ici on diminue
+			if (Input.GetKey (KeyCode.S) == true) {
 				movement += Vector3.down;
 			}	
 

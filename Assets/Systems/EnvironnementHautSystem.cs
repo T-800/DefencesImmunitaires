@@ -2,7 +2,7 @@
 using FYFY;
 
 public class EnvironnementHautSystem : FSystem {
-
+	//On récupére les élements qui peuvent bouger et se transformer
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move),typeof(Transform)));
 
 	// Use this to update member variables when system pause. 
@@ -20,6 +20,7 @@ public class EnvironnementHautSystem : FSystem {
 		foreach (GameObject go in _controllableGO) {
 			Transform tr = go.GetComponent<Transform> ();
 			float po = Time.time;
+			//On modifie la vitesse
 			go.GetComponent<Move>().vitesse = 10 + 2*Mathf.Sin(po/4) + Mathf.Sin(po/4 -0.2f);
 			tr.position += go.GetComponent<Move>().coefd * go.GetComponent<Move>().coefv * Vector3.up * go.GetComponent<Move>().vitesse  * Time.deltaTime;
 		}

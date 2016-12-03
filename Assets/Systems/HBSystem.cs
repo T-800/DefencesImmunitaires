@@ -2,6 +2,7 @@
 using FYFY;
 
 public class HBSystem : FSystem {
+	// Ce sytéme permet de gérer les HP
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents( typeof(HP)));
@@ -21,7 +22,7 @@ public class HBSystem : FSystem {
 			float hpMAX = go.GetComponent<HP> ().hpMAX;
 			Vector3 spx = go.transform.localScale;
 			float xi = hp / hpMAX;
-
+			// A chaque fois qu'on diminue le hp, on le remarque sur la barre HealthBare
 			go.transform.localScale = new Vector3(xi, spx.y, spx.z);
 		}
 	

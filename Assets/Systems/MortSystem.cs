@@ -5,7 +5,7 @@ using FYFY_plugins.TriggerManager;
 
 public class MortSystem : FSystem {
 
-
+	//On récupére tous les éléments qui peuvent bouger
 	private Family _triggeredGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)));
 	private Bounds bound;
 	public GameObject vir;
@@ -25,7 +25,7 @@ public class MortSystem : FSystem {
 
 		foreach (GameObject go in _triggeredGO) {
 			bool tokill = false;
-
+			//On vérifie tous les cas ou on peut mourrir, soit un infection par un virus etc...
 			Infecteur virusC = go.GetComponent<Infecteur> ();
 			HP hp1 = go.gameObject.GetComponentInChildren<HP> ();
 			IsApoptose isApoptose =  go.GetComponent<IsApoptose>();
@@ -33,12 +33,6 @@ public class MortSystem : FSystem {
 			IsInfecte infecte = go.GetComponent<IsInfecte> ();
 			Leucocyte leucocyte = go.GetComponent<Leucocyte> ();
 			Secreter secreter = go.GetComponent<Secreter> ();
-			Endommage endommage  = go.GetComponent<Endommage> ();
-			if (endommage != null && endommage.hasEndommage) { // mort des virus une fois qu'ils ont infecté qlqu'un
-				Debug.Log ("MORT : toxine a endommagé " + go);
-				tokill = true;
-				//GameObjectManager.destroyGameObject (go);
-			}
 			if (virusC != null && virusC.hasInfect) { // mort des virus une fois qu'ils ont infecté qlqu'un
 				Debug.Log ("MORT : virus a infecté " + go);
 				tokill = true;

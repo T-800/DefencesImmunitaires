@@ -2,6 +2,7 @@
 using FYFY;
 
 public class AntibioSystem : FSystem {
+	//nous avons le component antibiotique
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Antibiotique)));
 
 	// Use this to update member variables when system pause. 
@@ -19,10 +20,14 @@ public class AntibioSystem : FSystem {
 		foreach (GameObject go in _controllableGO) {
 			Antibiotique at = go.GetComponent<Antibiotique> ();
 			if (at.tempseffet == 0) {
+				// si l'effet est fini on eneleve le component
 				GameObjectManager.removeComponent<Antibiotique> (go);
+				//Augmenter la taille de l'élement pour montrer l"effet de l'antibiotique
 				at.transform.localScale = new Vector3 (1, 1, 1);
 			} else {
+				//Sur cette partie on rétrecie la taille de l'élement
 				if (at.tempseffet < 30) {
+
 					at.transform.localScale += new Vector3 (-0.2f, -0.2f, 0f);
 				} else {
 					at.transform.localScale += new Vector3 (0.1f, 0.1f, 0f);

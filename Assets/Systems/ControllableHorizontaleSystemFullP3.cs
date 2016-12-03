@@ -4,7 +4,7 @@ using FYFY;
 using FYFY_plugins.TriggerManager;
 
 public class ControllableHorizontaleSystemFullP3 : FSystem  { 
-
+	//Récuperer le joueur 3
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move)),new AllOfComponents(typeof(P3)),new AllOfComponents(typeof(Controllable))); 
  
 	// Use this to update member variables when system pause.  
@@ -24,19 +24,22 @@ public class ControllableHorizontaleSystemFullP3 : FSystem  {
 			Move mv = go.GetComponent<Move> (); 
 			int dir = go.GetComponent<P3>().dir; 
 			Vector3 movement = Vector3.zero; 
- 
+ 	//Ralentir
 			if (dir != 0 && Input.GetKey (KeyCode.F) == true)  { 
 				mv.coefv =0.9f; 
  
  
 			 } 
+			//Accelerer
 			if (dir != 0 && Input.GetKey (KeyCode.H) == true)  { 
 				mv.coefv =1.1f; 
  
 			 } 
+			//Monter en haut
 			if (Input.GetKey (KeyCode.T) == true)  { 
 				movement += Vector3.up; 
 			 } 
+			//Descendre
 			if (Input.GetKey (KeyCode.G) == true)  { 
 				movement += Vector3.down; 
 			 }	 

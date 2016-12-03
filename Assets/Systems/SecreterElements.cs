@@ -5,7 +5,7 @@ public class SecreterElements : FSystem {
 	//public int Intervalle = 3;
 
 
-
+	//On récupére les élements qui peuvent secreter et selon leurs types on rajoute des components au type 
 	private Family _SecreterGO = FamilyManager.getFamily(new AllOfComponents(typeof(Secreter)));
 	// Use this to update member variables when system pause. 
 	// Advice: avoid to update your families inside this function.

@@ -2,6 +2,7 @@
 using FYFY;
 
 public class VentriculeSystem : FSystem {
+	//On récupére les ventricules
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Ventricule)));
 
 	// Use this to update member variables when system pause. 
@@ -17,7 +18,7 @@ public class VentriculeSystem : FSystem {
 	// Use to process your families.
 	protected override void onProcess(int familiesUpdateCount) {
 		foreach (GameObject go in _controllableGO) {
-			
+			//on fait comme une barriére pour passer
 			GameObject c1 = go.GetComponent<Ventricule>().getc1 ();
 			GameObject c2 = go.GetComponent<Ventricule>().getc2 ();
 			if (Mathf.Sin (Time.time) > 0.6) {

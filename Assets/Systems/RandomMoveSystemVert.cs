@@ -2,7 +2,7 @@
 using FYFY;
 
 public class RandomMoveSystemVert : FSystem {
-
+	//Faire des random move verticalement pour les éléments qui peuvent bouger
 	private Family _controllableGO = FamilyManager.getFamily(new AllOfComponents(typeof(Move),typeof(RandomMove)));
 
 
